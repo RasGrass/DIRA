@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Data
 @Entity
@@ -23,12 +24,15 @@ public class Employee implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
+	@NotBlank(message = "Must not be null")
 	private String firstName;
 
 	@Column(nullable = false)
+	@NotBlank(message = "Must not be null")
 	private String lastName;
 
 	@ManyToOne(optional = false)
+	@NotBlank(message = "Must not be null")
 	private Position position;
 
 }

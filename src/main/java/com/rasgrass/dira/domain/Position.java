@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -24,12 +25,15 @@ public class Position implements Serializable {
 	private Long id;
 
 	@Column(nullable = false)
+	@NotBlank(message = "Must not be null")
 	private String name;
 
 	@Column(nullable = false)
+	@NotBlank(message = "Must not be null")
 	private Integer minimumWage;
 
 	@Column(nullable = false)
+	@NotBlank(message = "Must not be null")
 	private Integer maximumWage;
 
 }
